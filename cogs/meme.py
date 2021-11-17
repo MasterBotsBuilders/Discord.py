@@ -71,6 +71,9 @@ class Fun(commands.Cog):
       em=discord.Embed(title = "Simprate Machine", description = f"{name} is {rate1}% simp" , color = ctx.author.color)
       await ctx.send(embed=em)
 
+      @client.command()
+async def ping(ctx):
+    await ctx.send(f"{round(client.latency * 1000)}ms 🏓")
 
   @commands.command()
   async def emojify(self, ctx, *, text):
