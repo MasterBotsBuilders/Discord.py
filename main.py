@@ -31,4 +31,5 @@ async def loadall(ctx):
             
             
 bot.load_extension("cogs.fun")
+bot.load_extension("cogs.moderation")
 bot.run(token)
