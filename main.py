@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 
 
-prefix = config.get('token')
+token = config.get('token')
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix=commands.when_mentioned_or",", strip_after_prefix = True, intents = intents)
 
