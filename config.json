@@ -1,0 +1,9 @@
+
+{
+    "token":"",   
+    "stream_url": "STREAM-URL",
+
+    "bitly_key": "BITLY-KEY",
+    "weather_key": "OPENWEATHER-KEY",
+    "cuttly_key": "CUTTLY-KEY"
+}
