@@ -71,9 +71,14 @@ class Fun(commands.Cog):
       em=discord.Embed(title = "Simprate Machine", description = f"{name} is {rate1}% simp" , color = ctx.author.color)
       await ctx.send(embed=em)
 
-      @client.command()
-async def ping(ctx):
-    await ctx.send(f"{round(client.latency * 1000)}ms 🏓")
+  @commands.command()
+  async def ping(ctx):
+      ping = round(bot.latency * 1000)
+      Tile = f"Pong! 🏓"
+      Desc = f"Here is the bot latency for you - {ping}ms"
+      embed=discord.Embed(title=Tile, description=Desc)
+      embed.set_footer(text="Bot made by MasterBotsBuilders!")
+      await ctx.reply(embed=embed)
 
   @commands.command()
   async def emojify(self, ctx, *, text):
