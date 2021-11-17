@@ -72,7 +72,7 @@ class Fun(commands.Cog):
       await ctx.send(embed=em)
 
   @commands.command()
-  async def ping(ctx):
+  async def ping(self, ctx):
       ping = round(bot.latency * 1000)
       Tile = f"Pong! 🏓"
       Desc = f"Here is the bot latency for you - {ping}ms"
