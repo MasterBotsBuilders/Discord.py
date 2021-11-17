@@ -30,5 +30,6 @@ async def loadall(ctx):
             await ctx.send(f"Loaded `{filename[:-3]}` successfully!")
             
             
-bot.load_extension("cogs.meme")
+bot.load_extension("cogs.fun")
+bot.load_extension("cogs.moderation")
 bot.run(token)
