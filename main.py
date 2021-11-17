@@ -2,6 +2,8 @@ import discord
 import os
 from discord.ext import commands
 
+
+prefix = config.get('token')
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix=commands.when_mentioned_or",", strip_after_prefix = True, intents = intents)
 
@@ -29,4 +31,4 @@ async def loadall(ctx):
             
             
 bot.load_extension("cogs.meme")
-bot.run("YOUR-BOT-TOKEN-HERE")
+bot.run(token)
