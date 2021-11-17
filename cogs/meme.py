@@ -114,4 +114,4 @@ class Fun(commands.Cog):
         await ctx.send(f"{member.mention} {insult}.")
   
 def setup(bot):
-  Yui.add_cog(Fun(bot))
+  bot.add_cog(Fun(bot))
