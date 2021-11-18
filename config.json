@@ -1,6 +1,6 @@
 
 {
-    "token":"",   
+    "token":"BOT-TOKEN",   
     "stream_url": "STREAM-URL",
 
     "bitly_key": "BITLY-KEY",
