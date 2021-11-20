@@ -13,7 +13,7 @@ class utilities(commands.Cog):
     
     
     @commands.command(pass_context=True)
-    async def lyrics(ctx, *args):
+    async def lyrics(self, ctx, *args):
         track = " ".join(args)
         user = ctx.author
         for activity in user.activities:
@@ -47,6 +47,27 @@ class utilities(commands.Cog):
                     await wait.edit(embed=embed, content="")
             except:
                 await wait.edit(content=":x: Something went wrong, can't show lyrics ")
+                
+    @commands.command(aliases=['ethereum'])
+    async def eth(self, ctx):
+        r = requests.get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR')
+        r = r.json()
+        usd = r['USD']
+        eur = r['EUR']
+        em = discord.Embed(description=f'USD: `{str(usd)}$`\nEUR: `{str(eur)}€`')
+        em.set_author(name='Ethereum', icon_url='https://cdn.disnakeapp.com/attachments/271256875205525504/374282740218200064/2000px-Ethereum_logo.png')
+        await ctx.reply(embed=em)
+
+    @commands.command(aliases=['bitcoin'])
+    async def btc(self, ctx):
+        r = requests.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,EUR')
+        r = r.json()
+        usd = r['USD']
+        eur = r['EUR']
+        em = discord.Embed(description=f'USD: `{str(usd)}$`\nEUR: `{str(eur)}€`')
+        em.set_author(name='Bitcoin', icon_url='https://cdn.pixabay.com/photo/2013/12/08/12/12/bitcoin-225079_960_720.png')
+        await ctx.reply(embed=em)
+     
     
     
 def setup(bot):
