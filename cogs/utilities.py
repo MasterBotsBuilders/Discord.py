@@ -67,6 +67,23 @@ class utilities(commands.Cog):
         em = discord.Embed(description=f'USD: `{str(usd)}$`\nEUR: `{str(eur)}€`')
         em.set_author(name='Bitcoin', icon_url='https://cdn.pixabay.com/photo/2013/12/08/12/12/bitcoin-225079_960_720.png')
         await ctx.reply(embed=em)
+        
+        
+    
+    @Yui.command()
+    async def pingweb(ctx, website = None):
+        if website is None: 
+            embed=discord.Embed(title="Error!", description="You didn't enter a website to ping for ;-;", color=0x243e7b)
+            await ctx.send(embed=embed)
+        else:
+            try:
+                r = requests.get(website).status_code
+            except Exception as e:
+                await ctx.send(f"Error raised :- ```{e}```)
+            if r == 404:
+                await ctx.send(f'Site is down, responded with a status code of {r}')
+            else:
+                await ctx.send(f'Site is up, responded with a status code of {r
      
     
     
