@@ -4,7 +4,7 @@ import random
 import LyricsScraper
 import requests
 import aiohttp
-
+bot_embed_color = 0x4548a8
 
 class utilities(commands.Cog):
 
@@ -70,8 +70,8 @@ class utilities(commands.Cog):
         
         
     
-    @Yui.command()
-    async def pingweb(ctx, website = None):
+    @commands.command()
+    async def pingweb(self, ctx, website = None):
         if website is None: 
             embed=discord.Embed(title="Error!", description="You didn't enter a website to ping for ;-;", color=0x243e7b)
             await ctx.send(embed=embed)
@@ -83,7 +83,15 @@ class utilities(commands.Cog):
             if r == 404:
                 await ctx.send(f'Site is down, responded with a status code of {r}')
             else:
-                await ctx.send(f'Site is up, responded with a status code of {r
+                await ctx.send(f'Site is up, responded with a status code of {r}')
+                               
+                               
+    @Yui.command(aliases=['pfp', 'avatar'])
+    async def av(ctx, *, user: discord.Member): 
+        av = user.display_avatar.url
+        embed = discord.Embed(title="{}'s pfp".format(user.name), description="Here it is!", color=bot_embed_color)
+        embed.set_image(url=av)
+        await ctx.send(embed=embed)
      
     
     
