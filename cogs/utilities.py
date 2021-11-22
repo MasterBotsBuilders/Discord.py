@@ -93,6 +93,16 @@ class utilities(commands.Cog):
         embed.set_image(url=av)
         await ctx.send(embed=embed)
      
+                               
+    @commands.command(aliases=['server', 'serverinfo'])
+    async def sinfo(ctx):
+        embed = discord.Embed(title=f"{ctx.guild.name}", description="Here is the server info :-", color=bot_embed_color)
+        embed.add_field(name="Server created at", value=f"{ctx.guild.created_at}")
+        embed.add_field(name="Server Owner", value=f"{ctx.guild.owner}")
+        embed.add_field(name="Server Region", value=f"{ctx.guild.region}")
+        embed.add_field(name="Server ID", value=f"{ctx.guild.id}")
+        embed.set_thumbnail(url=f"{ctx.guild.icon}")
+        await ctx.reply(embed=embed)
     
     
 def setup(bot):
