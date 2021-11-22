@@ -130,6 +130,50 @@ class utilities(commands.Cog):
             if field['value']:
                 em.add_field(name=field['name'], value=field['value'], inline=True)
         return await ctx.send(embed=em)
+                               
+                               
+                               
+    @commands.command()
+    async def truth(self, ctx, rating = None):
+      if rating == None:
+        r = requests.get(f"https://api.truthordarebot.xyz/api/truth/?rating=")
+        res = r.json()
+        Tile = f"Here is a truth for you"
+        Desc = res['question']
+        embed=discord.Embed(title=Tile, description=Desc, color=bot_embed_color)
+        await ctx.reply(embed=embed)
+      else:
+        try: 
+          r = requests.get(f"https://api.truthordarebot.xyz/api/truth/?rating={rating}")
+          res = r.json()
+          Tile = f"Here is a {rating} rated question for you"
+          Desc = res['question']
+          embed=discord.Embed(title=Tile, description=Desc, color=bot_embed_color)
+          await ctx.replyembed=embed)
+        except:
+          await ctx.reply("Please send a valid rating!! Valid parameters are `pg`,`pg13`,`r`")
+          
+          
+          
+    @commands.command()
+    async def dare(self, ctx, rating = None):
+      if rating == None:
+        r = requests.get(f"https://api.truthordarebot.xyz/api/dare/?rating=")
+        res = r.json()
+        Tile = f"Here is a truth for you"
+        Desc = res['question']
+        embed=discord.Embed(title=Tile, description=Desc, color=bot_embed_color)
+        await ctx.reply(embed=embed)
+      else:
+        try: 
+          r = requests.get(f"https://api.truthordarebot.xyz/api/dare/?rating={rating}")
+          res = r.json()
+          Tile = f"Here is a {rating} rated question for you"
+          Desc = res['question']
+          embed=discord.Embed(title=Tile, description=Desc, color=bot_embed_color)
+          await ctx.replyembed=embed)
+        except:
+          await ctx.reply("Please send a valid rating!! Valid parameters are `pg`,`pg13`,`r`")
     
     
 def setup(bot):
