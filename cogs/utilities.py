@@ -95,7 +95,7 @@ class utilities(commands.Cog):
      
                                
     @commands.command(aliases=['server', 'serverinfo'])
-    async def sinfo(ctx):
+    async def sinfo(self, ctx):
         embed = discord.Embed(title=f"{ctx.guild.name}", description="Here is the server info :-", color=bot_embed_color)
         embed.add_field(name="Server created at", value=f"{ctx.guild.created_at}")
         embed.add_field(name="Server Owner", value=f"{ctx.guild.owner}")
