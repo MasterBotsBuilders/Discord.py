@@ -103,6 +103,33 @@ class utilities(commands.Cog):
         embed.add_field(name="Server ID", value=f"{ctx.guild.id}")
         embed.set_thumbnail(url=f"{ctx.guild.icon}")
         await ctx.reply(embed=embed)
+                               
+                               
+                               
+    @commands.command(aliases=['geolocate', 'iptogeo', 'iptolocation', 'ip2geo', 'ip'])
+    async def geoip(self, ctx, *, ipaddr: str = '1.3.3.7'): 
+        r = requests.get(f'http://extreme-ip-lookup.com/json/{ipaddr}')
+        geo = r.json()
+        em = discord.Embed()
+        fields = [
+            {'name': 'IP', 'value': geo['query']},
+            {'name': 'ipType', 'value': geo['ipType']},
+            {'name': 'Country', 'value': geo['country']},
+            {'name': 'City', 'value': geo['city']},
+            {'name': 'Continent', 'value': geo['continent']},
+            {'name': 'Country', 'value': geo['country']},
+            {'name': 'IPName', 'value': geo['ipName']},
+            {'name': 'ISP', 'value': geo['isp']},
+            {'name': 'Latitute', 'value': geo['lat']},
+            {'name': 'Longitude', 'value': geo['lon']},
+            {'name': 'Org', 'value': geo['org']},
+            {'name': 'Region', 'value': geo['region']},
+            {'name': 'Status', 'value': geo['status']},
+        ]
+        for field in fields:
+            if field['value']:
+                em.add_field(name=field['name'], value=field['value'], inline=True)
+        return await ctx.send(embed=em)
     
     
 def setup(bot):
