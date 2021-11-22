@@ -86,8 +86,8 @@ class utilities(commands.Cog):
                 await ctx.send(f'Site is up, responded with a status code of {r}')
                                
                                
-    @Yui.command(aliases=['pfp', 'avatar'])
-    async def av(ctx, *, user: discord.Member): 
+    @commands.command(aliases=['pfp', 'avatar'])
+    async def av(self, ctx, *, user: discord.Member): 
         av = user.display_avatar.url
         embed = discord.Embed(title="{}'s pfp".format(user.name), description="Here it is!", color=bot_embed_color)
         embed.set_image(url=av)
